@@ -4,9 +4,9 @@ glu = h.Glu3d(s(.5))
 h.load_file("test1.ses")
 
 
-nx=25
-ny=25
-nz=5
+nx=int(h.nx_Glu3d)
+ny=int(h.ny_Glu3d)
+nz=int(h.nz_Glu3d)
 
 sl = h.SectionList()
 hin = h.PlotShape[0]

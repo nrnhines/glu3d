@@ -1,6 +1,7 @@
 NEURON {
   POINT_PROCESS Glu3d
   RANGE src
+  GLOBAL nx, ny, nz
 }
 
 DEFINE NX 25
@@ -15,6 +16,9 @@ UNITS {
 }
 
 PARAMETER {
+  nx = NX
+  ny = NY
+  nz = NZ
   dx = .02 (um)
   D = .1 (um2/ms)
   src = 0 (/ms)
