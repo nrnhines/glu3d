@@ -15,32 +15,32 @@ xvalue("Continue til","runStopAt", 1,"{continuerun(runStopAt) stoprun=1}", 1, 1 
 runStopIn = 1
 xvalue("Continue for","runStopIn", 1,"{continuerun(t + runStopIn) stoprun=1}", 1, 1 )
 xbutton("Single Step","steprun()")
-t = 5
+t = 0.05
 xvalue("t","t", 2 )
-tstop = 5
+tstop = 0.05
 xvalue("Tstop","tstop", 1,"tstop_changed()", 0, 1 )
-dt = 1.26705
+dt = 0.00873152
 xvalue("dt","dt", 1,"setdt()", 0, 1 )
-steps_per_ms = 40
+steps_per_ms = 1000
 xvalue("Points plotted/ms","steps_per_ms", 1,"setdt()", 0, 1 )
 screen_update_invl = 0.05
 xvalue("Scrn update invl","screen_update_invl", 1,"", 0, 1 )
-realtime = 12.52
+realtime = 12.09
 xvalue("Real Time","realtime", 0,"", 0, 1 )
 xpanel(153,124)
 }
 {
 save_window_ = new Graph(0)
-save_window_.size(0,5,0,1)
+save_window_.size(0,0.05,0,20)
 scene_vector_[2] = save_window_
-{save_window_.view(0, 0, 5, 1, 837, 199, 446.4, 328)}
+{save_window_.view(0, 0, 0.05, 20, 837, 199, 446.4, 328)}
 graphList[2].append(save_window_)
 save_window_.save_name("graphList[2].")
-save_window_.addvar("Glu3d[0].glu[0]", 1, 1, 0.550799, 0.957508, 2)
-save_window_.addexpr("Glu3d[0].glu[0 +4*625]", 1, 1, 0.461342, 0.952716, 2)
-save_window_.addexpr("Glu3d[0].glu[10+4*625]", 1, 3, 0.530486, 0.934911, 2)
-save_window_.addexpr("Glu3d[0].glu[0 + 10*25+4*625]", 2, 1, 0.526068, 0.923274, 2)
-save_window_.addexpr("Glu3d[0].glu[10 + 10*25+4*625]", 1, 1, 0.540795, 0.90931, 2)
+save_window_.addexpr("Glu3d[0].glu[ijk(0,0,nz-1)]", 1, 1, 0.461342, 0.952716, 2)
+save_window_.addexpr("Glu3d[0].glu[ijk(10,0,nz-1)]", 1, 3, 0.530486, 0.934911, 2)
+save_window_.addexpr("Glu3d[0].glu[ijk(0,10,nz-1)]", 2, 1, 0.526068, 0.923274, 2)
+save_window_.addexpr("Glu3d[0].glu[ijk(10,10,nz-1)]", 1, 1, 0.540795, 0.90931, 2)
+save_window_.addvar("Glu3d[0].clearance", 4, 1, 0.539785, 0.891219, 2)
 }
 
 //Begin VariableTimeStep
@@ -73,10 +73,10 @@ objref ocbox_
 
 {
 save_window_ = new PlotShape(0)
-save_window_.size(-0.904424,25.9044,-0.0404921,25.0405)
+save_window_.size(-1.20561,36.2056,-1.35899e-05,35)
 save_window_.variable("v")
 scene_vector_[3] = save_window_
-{save_window_.view(-0.904424, -0.0404921, 26.8088, 25.081, 468, 32, 317.76, 297.28)}
+{save_window_.view(-1.20561, -1.35899e-05, 37.4112, 35, 468, 32, 317.76, 297.28)}
 fast_flush_list.append(save_window_)
 save_window_.save_name("fast_flush_list.")
 }

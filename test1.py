@@ -7,6 +7,10 @@ h.load_file("test1.ses")
 nx=int(h.nx_Glu3d)
 ny=int(h.ny_Glu3d)
 nz=int(h.nz_Glu3d)
+h('nx=%d'%nx)
+h('ny=%d'%ny)
+h('nz=%d'%nz)
+h('''func ijk() { return $1 + nx*$2 + nx*ny*$3 }''')
 
 sl = h.SectionList()
 hin = h.PlotShape[0]
@@ -18,9 +22,10 @@ for i in range(nx):
 #h.flush_list.append(hin)
 hin.exec_menu("Shape Plot")
 
+# now 500 Glutamate molecules in 1/4 vesicle at 0,0,0
 vsrc = h.Vector([0, 0, 1, 1, 0, 0])
-vsrc.mul(300)
+vsrc.mul(2e-9)
 tsrc = h.Vector([0, 1, 1, 2, 2, 3])
-vsrc.play(glu._ref_src, tsrc, 1)
+#vsrc.play(glu._ref_src, tsrc, 1)
 
 h.stdinit()
